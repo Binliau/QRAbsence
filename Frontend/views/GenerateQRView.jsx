@@ -20,7 +20,7 @@ function GenerateQRView() {
   useEffect(() => {
     fetch('https://qrabsence.onrender.com/api/qr/all')
       .then(res => res.json())
-      .then(data => setQrList(data.qrCodes || []));
+      .then(data => setQrList(data.qrList || []));
   }, []);
 
   // Check if there is already a QR code for today
@@ -40,7 +40,7 @@ function GenerateQRView() {
     // Refresh QR list after generating
     fetch('https://qrabsence.onrender.com/api/qr/all')
       .then(res => res.json())
-      .then(data => setQrList(data.qrCodes || []));
+      .then(data => setQrList(data.qrList || []));
   };
 
   const viewAbsensi = (token_qr) => {
