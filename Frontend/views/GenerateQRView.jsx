@@ -17,11 +17,15 @@ function GenerateQRView() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
 
-  useEffect(() => {
-    fetch('https://qrabsence.onrender.com/api/qr/all')
-      .then(res => res.json())
-      .then(data => setQrList(data.qrList || []));
-  }, []);
+useEffect(() => {
+  fetch('https://qrabsence.onrender.com/api/qr/all')
+    .then(res => res.json())
+    .then(data => {
+      console.log('QR List fetched:', data.qrList); // Log setelah fetch
+      setQrList(data.qrList || []);
+    })
+    .catch(err => setMessage(err.message));
+}, []);
 
   // Check if there is already a QR code for today
   const isTodayQRExists = () => {
