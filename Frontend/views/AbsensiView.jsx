@@ -53,7 +53,7 @@ function AbsensiView() {
 
           // Send POST request to backend to record absensi
           try {
-            const res = await fetch('http://localhost:5000/api/absensi/submit', {
+            const res = await fetch('https://qrabsence.onrender.com/api/absensi/submit', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({

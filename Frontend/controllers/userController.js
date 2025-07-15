@@ -2,7 +2,7 @@ import { loginUser, registerUser } from '../models/userModel';
 
 export async function handleLogin(email, password, setMessage, onSuccess) {
   try {
-    const res = await fetch('http://localhost:5000/api/user/login', {
+    const res = await fetch('https://qrabsence.onrender.com/api/user/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -22,7 +22,7 @@ export async function handleLogin(email, password, setMessage, onSuccess) {
 
 export async function handleRegister(nama, email, password, setMessage, onSuccess) {
   try {
-    const res = await fetch('http://localhost:5000/api/user/register', {
+    const res = await fetch('https://qrabsence.onrender.com/api/user/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nama, email, password })

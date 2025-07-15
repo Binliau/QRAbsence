@@ -25,10 +25,11 @@ async function getLatestQR(req, res) {
 
 async function getAllQR(req, res) {
   try {
-    const qrCodes = await qrService.getAllQR();
-    res.json({ qrCodes });
+    const qrList = await qrService.getAllQR();
+    res.json({ qrList });
   } catch (err) {
-    res.status(500).json({ message: 'Gagal mengambil daftar QR Code' });
+    console.error('Error in getAllQR:', err);
+    res.status(500).json({ message: 'Gagal mengambil data QR', error: err.message });
   }
 }
 

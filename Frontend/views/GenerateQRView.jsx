@@ -18,7 +18,7 @@ function GenerateQRView() {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/qr/all')
+    fetch('https://qrabsence.onrender.com/api/qr/all')
       .then(res => res.json())
       .then(data => setQrList(data.qrCodes || []));
   }, []);
@@ -38,14 +38,14 @@ function GenerateQRView() {
     }
     await handleGenerateQR(id_admin, setToken, setImage);
     // Refresh QR list after generating
-    fetch('http://localhost:5000/api/qr/all')
+    fetch('https://qrabsence.onrender.com/api/qr/all')
       .then(res => res.json())
       .then(data => setQrList(data.qrCodes || []));
   };
 
   const viewAbsensi = (token_qr) => {
     setAbsensiInfo('');
-    fetch(`http://localhost:5000/api/absensi/byqr/${token_qr}`)
+    fetch(`https://qrabsence.onrender.com/api/absensi/byqr/${token_qr}`)
       .then(res => res.json())
       .then(data => {
         if (data.absensi && data.absensi.length > 0) {
