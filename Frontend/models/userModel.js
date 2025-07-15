@@ -1,0 +1,17 @@
+export async function loginUser(email, password) {
+  const response = await fetch('http://localhost:3000/api/user/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  return await response.json();
+}
+
+export async function registerUser(nama, email, password) {
+  const response = await fetch('http://localhost:3000/api/user/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nama, email, password })
+  });
+  return await response.json();
+}
